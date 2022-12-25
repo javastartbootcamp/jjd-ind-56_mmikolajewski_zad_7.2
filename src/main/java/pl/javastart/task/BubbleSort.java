@@ -6,22 +6,21 @@ public class BubbleSort {
     public int sort(int[] inputArray) {
         int countComparison = 0;
         int valueCatcher;
-        boolean swapped;
+        boolean swapped = true;
+        int length = inputArray.length;
 
-        for (int i = 0; i < inputArray.length - 1; i++) {
+        while (swapped) {
             swapped = false;
-            for (int j = 0; j < inputArray.length - 1 - i; j++) {
-                if (inputArray[j] > inputArray[j + 1]) {
-                    valueCatcher = inputArray[j];
-                    inputArray[j] = inputArray[j + 1];
-                    inputArray[j + 1] = valueCatcher;
+            for (int i = 0; i < length - 1; i++) {
+                if (inputArray[i] > inputArray[i + 1]) {
+                    valueCatcher = inputArray[i];
+                    inputArray[i] = inputArray[i + 1];
+                    inputArray[i + 1] = valueCatcher;
                     swapped = true;
                 }
                 countComparison++;
             }
-            if (!swapped) {
-                break;
-            }
+            length--;
         }
         return countComparison;
     }
