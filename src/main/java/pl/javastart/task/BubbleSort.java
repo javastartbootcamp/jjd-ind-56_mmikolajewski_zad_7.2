@@ -7,11 +7,11 @@ public class BubbleSort {
         int countComparison = 0;
         int valueCatcher;
         boolean swapped = true;
-        int length = inputArray.length;
+        int lockedElementCount = 0;
 
         while (swapped) {
             swapped = false;
-            for (int i = 0; i < length - 1; i++) {
+            for (int i = 0; i < inputArray.length - 1 - lockedElementCount; i++) {
                 if (inputArray[i] > inputArray[i + 1]) {
                     valueCatcher = inputArray[i];
                     inputArray[i] = inputArray[i + 1];
@@ -20,7 +20,7 @@ public class BubbleSort {
                 }
                 countComparison++;
             }
-            length--;
+            lockedElementCount++;
         }
         return countComparison;
     }
